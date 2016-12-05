@@ -1,0 +1,781 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     35531,        772]
+NotebookOptionsPosition[     33603,        707]
+NotebookOutlinePosition[     33963,        723]
+CellTagsIndexPosition[     33920,        720]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Exercises: Manipulate", "Title",
+ CellChangeTimes->{{3.655552218285063*^9, 3.655552226025772*^9}, {
+   3.6591832070896397`*^9, 3.6591832167727127`*^9}, {3.659183617524934*^9, 
+   3.659183638786973*^9}, {3.6591837390277233`*^9, 3.659183757542976*^9}, {
+   3.6591845164548397`*^9, 3.659184520086424*^9}, {3.659184961912386*^9, 
+   3.659184989576367*^9}, {3.661682772245614*^9, 3.661682785883873*^9}, {
+   3.662711577782604*^9, 3.662711582314618*^9}, {3.662716709489929*^9, 
+   3.662716726058938*^9}, {3.663574619338147*^9, 3.663574619426814*^9}, 
+   3.6635773395621634`*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Labelling Buttons in Manipulate", "Section",
+ CellChangeTimes->{{3.661681316612306*^9, 3.661681323055728*^9}}],
+
+Cell["\<\
+The Setter ControlType of Manipulate provides the ability to label buttons \
+with a different value to what is assigned to a variable when clicked, for \
+insance:\
+\>", "Text",
+ CellChangeTimes->{{3.6616813263855543`*^9, 3.6616814427675047`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{"variable", ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"variable", ",", "\"\<a\>\"", ",", "\"\<Choose a letter\>\""}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<a\>\"", "\[Rule]", "\"\<z\>\""}], ",", 
+       RowBox[{"\"\<b\>\"", "\[Rule]", "\"\<y\>\""}], ",", 
+       RowBox[{"\"\<c\>\"", "\[Rule]", "\"\<x\>\""}]}], "}"}]}], "}"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.6616814445735607`*^9, 3.661681498336681*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`variable$$ = "a", Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`variable$$], "a", "Choose a letter"}, {
+      "a" -> "z", "b" -> "y", "c" -> "x"}}}, Typeset`size$$ = {8., {1., 6.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`variable$202314$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`variable$$ = "a"}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`variable$$, $CellContext`variable$202314$$, False]},
+       "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> $CellContext`variable$$, 
+      "Specifications" :> {{{$CellContext`variable$$, "a", 
+          "Choose a letter"}, {"a" -> "z", "b" -> "y", "c" -> "x"}}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{149., {47., 52.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.6616814771345673`*^9, 3.6616815092561083`*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Using this information attempt to build the following interface, the steps \
+below will help you\
+\>", "Text",
+ CellChangeTimes->{{3.661681779731337*^9, 3.661681782240443*^9}, {
+  3.661681819119162*^9, 3.661681828894083*^9}, {3.661681869259809*^9, 
+  3.661681877517845*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`number$$ = 1, $CellContext`variable$$ = 3, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`number$$], 5}, 1, 10, 1}, {{
+       Hold[$CellContext`variable$$], 5, "Operation"}, {
+      1 -> "Identity", 2 -> "Square", 3 -> "Cube", 4 -> "Quartic", 5 -> 
+       "Quintic"}}}, Typeset`size$$ = {8., {0., 9.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`number$202642$$ = 0, $CellContext`variable$202643$$ = 
+    False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`number$$ = 5, $CellContext`variable$$ = 5},
+       "ControllerVariables" :> {
+        Hold[$CellContext`number$$, $CellContext`number$202642$$, 0], 
+        Hold[$CellContext`variable$$, $CellContext`variable$202643$$, False]},
+       "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`number$$^$CellContext`variable$$, 
+      "Specifications" :> {{{$CellContext`number$$, 5}, 1, 10, 
+         1}, {{$CellContext`variable$$, 5, "Operation"}, {
+         1 -> "Identity", 2 -> "Square", 3 -> "Cube", 4 -> "Quartic", 5 -> 
+          "Quintic"}}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{284., {61., 66.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.6616818413303423`*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Provide a slider for the user to select the number", "ItemNumbered",
+ CellChangeTimes->{{3.6616818620496807`*^9, 3.661681908732855*^9}}],
+
+Cell["\<\
+Experiment with the standard arithmetic operations from Excel etc to decide \
+how the operations listed above could be achieved\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.6616818620496807`*^9, 3.661682012946103*^9}}],
+
+Cell["\<\
+Add to the Manipulate a control that allows the operations above to be \
+performed\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.6616818620496807`*^9, 3.661682051622278*^9}}],
+
+Cell["Provide the control values with the appropriate labels.", "ItemNumbered",
+ CellChangeTimes->{{3.6616818620496807`*^9, 3.6616820664071074`*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Changing Visualisations in Manipulate", "Section",
+ CellChangeTimes->{{3.6616832325984297`*^9, 3.661683233839501*^9}, {
+  3.661685619175482*^9, 3.66168564427164*^9}}],
+
+Cell["\<\
+In many languages it is necessary to use control structures like Switch \
+statements to change the function applied to a series of arguments, in the \
+Wolfram Language this can often be circumvented by changing the head of an \
+expression in Manipulate:\
+\>", "Text",
+ CellChangeTimes->{{3.661683236628181*^9, 3.661683243715819*^9}, {
+  3.6616837808998833`*^9, 3.661683784255731*^9}, {3.661685704921557*^9, 
+  3.661685761623564*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"chart", "[", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "2", ",", "4", ",", "7"}], "}"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"chart", ",", 
+     RowBox[{"{", 
+      RowBox[{"PieChart", ",", "BarChart"}], "}"}]}], "}"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.6616837851910458`*^9, 3.661683823109874*^9}}],
+
+Cell["\<\
+Using this information attempt to build the following interface, the steps \
+below will help you\
+\>", "Text",
+ CellChangeTimes->{{3.661681779731337*^9, 3.661681782240443*^9}, {
+  3.661681819119162*^9, 3.661681828894083*^9}, {3.661681869259809*^9, 
+  3.661681877517845*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`chartType$$ = 
+    ListPlot, $CellContext`func1$$ = Cos, $CellContext`func2$$ = Cos, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`chartType$$], {ListPlot, ListLinePlot}}, {
+      Hold[$CellContext`func1$$], {Cos, Sin}}, {
+      Hold[$CellContext`func2$$], {Cos, Sin}}}, Typeset`size$$ = {
+    416., {105., 109.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`chartType$222832$$ = 
+    False, $CellContext`func1$222833$$ = False, $CellContext`func2$222834$$ = 
+    False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`chartType$$ = 
+        ListPlot, $CellContext`func1$$ = Cos, $CellContext`func2$$ = Cos}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`chartType$$, $CellContext`chartType$222832$$, 
+         False], 
+        Hold[$CellContext`func1$$, $CellContext`func1$222833$$, False], 
+        Hold[$CellContext`func2$$, $CellContext`func2$222834$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> $CellContext`chartType$$[{
+         Table[{$CellContext`i, \
+$CellContext`func1$$[$CellContext`i]/$CellContext`i}, {$CellContext`i, 20}], 
+         Table[{$CellContext`i, \
+$CellContext`func2$$[$CellContext`i]/$CellContext`i^2}, {$CellContext`i, 
+           20}]}, PlotLegends -> {$CellContext`func1$$/$CellContext`i, \
+$CellContext`func2$$/$CellContext`i^2}], 
+      "Specifications" :> {{$CellContext`chartType$$, {
+         ListPlot, ListLinePlot}}, {$CellContext`func1$$, {
+         Cos, Sin}}, {$CellContext`func2$$, {Cos, Sin}}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{461., {172., 177.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.661683408278448*^9, 3.661683487682908*^9}, 
+   3.661683522689529*^9, {3.661683560321405*^9, 3.661683574057687*^9}, 
+   3.661683620134191*^9, {3.661683675599699*^9, 3.6616836804735603`*^9}, {
+   3.661685670357543*^9, 3.661685682953734*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Use ListPlot to visualise the output of the two following expressions from 0 \
+to 20, you will need to refer to your notes on the Table function\
+\>", "ItemNumbered",
+ CellChangeTimes->{
+  3.66168387211147*^9, {3.66168619664052*^9, 3.6616862437292852`*^9}, {
+   3.66168628281104*^9, 3.661686329128443*^9}}],
+
+Cell["Sin[i]/i", "Item",
+ CellChangeTimes->{{3.661686262090336*^9, 3.661686271915663*^9}}],
+
+Cell["Sin[i]/i^2", "Item",
+ CellChangeTimes->{{3.661686262090336*^9, 3.661686276804729*^9}}],
+
+Cell["\<\
+Wrap your ListPlot inside of Manipulate and allow the user to select between \
+Sin and Cos for the two functions\
+\>", "ItemNumbered",
+ CellChangeTimes->{
+  3.66168387211147*^9, {3.66168619664052*^9, 3.6616862280908403`*^9}, {
+   3.661686387675221*^9, 3.661686417383666*^9}}],
+
+Cell["\<\
+Allow the user to switch between ListPlot and ListLinePlot visualisations of \
+the data\
+\>", "ItemNumbered",
+ CellChangeTimes->{
+  3.66168387211147*^9, {3.66168619664052*^9, 3.6616862280908403`*^9}, {
+   3.661686387675221*^9, 3.661686451226068*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Pivoting Through Data with Manipulate", "Section",
+ CellChangeTimes->{{3.6616811531910152`*^9, 3.6616811539551907`*^9}, {
+  3.661683635012465*^9, 3.661683648284885*^9}}],
+
+Cell["\<\
+Manipulate is particularly useful for providing a way to interactively pivot \
+through your datasets, in this exercise we will build a tool that allows us \
+to visualise the distribution of the different properties of grant holders we \
+looked at previously:\
+\>", "Text",
+ CellChangeTimes->{{3.6616865799056664`*^9, 3.661686644164998*^9}, {
+  3.661686795627198*^9, 3.661686807719878*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`chartType$$ = 
+    Histogram, $CellContext`col$$ = 4, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`chartType$$], Histogram, "Chart Type"}, {
+      Histogram, BoxWhiskerChart, DistributionChart}}, {{
+       Hold[$CellContext`col$$], 3, "Property to Plot"}, {
+      3 -> "Height", 4 -> "Weight"}}}, Typeset`size$$ = {360., {116., 121.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`chartType$17176$$ = 0, $CellContext`col$17177$$ = 
+    False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`chartType$$ = 
+        Histogram, $CellContext`col$$ = 3}, "ControllerVariables" :> {
+        Hold[$CellContext`chartType$$, $CellContext`chartType$17176$$, 0], 
+        Hold[$CellContext`col$$, $CellContext`col$17177$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> $CellContext`chartType$$[
+        Part[$CellContext`grantHolders, All, $CellContext`col$$], AxesLabel -> {
+          Part[$CellContext`columnNames, $CellContext`col$$ - 1], "Count"}, 
+        PlotLabel -> StringJoin["Distribution of ", 
+          Part[$CellContext`columnNames, $CellContext`col$$ - 1], 
+          " Amongst Grant Holders"]], 
+      "Specifications" :> {{{$CellContext`chartType$$, Histogram, 
+          "Chart Type"}, {
+         Histogram, BoxWhiskerChart, 
+          DistributionChart}}, {{$CellContext`col$$, 3, "Property to Plot"}, {
+         3 -> "Height", 4 -> "Weight"}}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{405., {171., 176.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`grantHolders = {{
+         "DAVID", 1, 153.05699698060732`, 72.40819579515212}, {
+         "PAUL", 11, 144.3674982863825, 96.74491738625878}, {
+         "ANDREW", 1, 179.38115872110308`, 97.43329733118253}, {
+         "MARK", 2, 130.66533135707104`, 93.03143494731813}, {
+         "JOHN", 5, 158.25993207472257`, 113.56690755579984`}, {
+         "MICHAEL", 3, 166.2358678024236, 101.14331111181112`}, {
+         "STEPHEN", 4, 189.29999244066659`, 89.44246497817487}, {
+         "IAN", 10, 128.46405858778132`, 76.86079823646568}, {
+         "ROBERT", 2, 143.0659772441906, 94.28215164804448}, {
+         "RICHARD", 11, 159.99477696163834`, 93.4502934527263}, {
+         "CHRISTOPHER", 7, 141.6904706177919, 97.65362819782949}, {
+         "PETER", 11, 144.51388888773886`, 75.87919657211998}, {
+         "SIMON", 11, 149.26111091779373`, 85.51702893779121}, {
+         "ANTHONY", 7, 188.05995866206436`, 98.33016368890605}, {
+         "KEVIN", 4, 173.83256531918656`, 82.19090490314944}, {
+         "GARY", 9, 120.64150392617289`, 81.43824554235479}, {
+         "STEVEN", 9, 154.612482768071, 110.13012837474264`}, {
+         "MARTIN", 7, 155.49377370959124`, 111.90495698871295`}, {
+         "JAMES", 8, 180.89023816227976`, 103.42863849722647`}, {
+         "PHILIP", 3, 186.97600254046344`, 93.78504059845466}, {
+         "ALAN", 10, 172.23293423103996`, 124.74331800029675`}, {
+         "NEIL", 11, 159.28998527661275`, 89.98271910103195}, {
+         "NIGEL", 4, 163.11926599087215`, 88.39991093355661}, {
+         "TIMOTHY", 10, 130.9581782604533, 85.24457842248002}, {
+         "COLIN", 8, 147.08617088913692`, 77.83101743336577}, {
+         "GRAHAM", 6, 169.8739499609269, 78.04591246489966}, {
+         "JONATHAN", 4, 153.405341896703, 103.15689488095288`}, {
+         "NICHOLAS", 9, 129.687150997123, 99.17710299753823}, {
+         "WILLIAM", 9, 166.8752697896192, 83.95094483868246}, {
+         "ADRIAN", 8, 144.7164894334626, 78.47316667653678}, {
+         "BRIAN", 11, 165.9821953259068, 69.62636399610572}, {
+         "STUART", 7, 185.81905097996224`, 85.853184700319}, {
+         "KEITH", 5, 178.50825888849607`, 92.3607861601794}, {
+         "THOMAS", 6, 163.71962245450445`, 90.42141291440085}, {
+         "PATRICK", 3, 201.2816079489377, 84.68362960429252}, {
+         "SEAN", 5, 171.50649674964174`, 83.99963519033888}, {
+         "CARL", 8, 158.16546501154784`, 86.97074185370158}, {
+         "TREVOR", 2, 186.3473675226552, 71.30923035864053}, {
+         "WAYNE", 10, 170.9513386935156, 80.3017516765964}, {
+         "SHAUN", 1, 116.26111698059464`, 87.96707046804946}, {
+         "KENNETH", 12, 173.9517895559707, 83.83981834083956}, {
+         "BARRY", 3, 172.9949329686951, 91.93117705891878}, {
+         "DEREK", 11, 136.4607107724595, 103.69875927325432`}, {
+         "DEAN", 7, 194.34923609509343`, 85.99160671269492}, {
+         "RAYMOND", 10, 138.08063908899294`, 92.93413209857687}, {
+         "ANTONY", 4, 163.69033518592167`, 88.43260987740891}, {
+         "JEREMY", 3, 187.4964465136431, 80.41755603403224}, {
+         "JOSEPH", 3, 187.46101472856907`, 91.56578379997795}, {
+         "EDWARD", 12, 174.58515916576061`, 75.27407495294867}, {
+         "LEE", 11, 170.98245129173392`, 103.15109498112926`}, {
+         "TERENCE", 2, 170.6429263181309, 102.52442785391356`}, {
+         "MATTHEW", 12, 143.43536854259492`, 92.73441885512997}, {
+         "DANIEL", 3, 160.25959872829787`, 96.92255421728046}, {
+         "GEORGE", 9, 144.61030240212432`, 78.89188371018778}, {
+         "RUSSELL", 7, 148.93883259530088`, 101.81064170706821`}, {
+         "CHARLES", 11, 148.88096748298813`, 89.63361836774594}, {
+         "JEFFREY", 12, 191.04101738888858`, 96.48363099988603}, {
+         "CLIVE", 5, 140.43696943306006`, 115.76175089678591`}, {
+         "PHILLIP", 1, 145.64839564521128`, 91.42186125132616}, {
+         "CRAIG", 4, 167.69616479991092`, 139.71762947968568`}, {
+         "ROGER", 1, 147.48950082893097`, 106.3760686028615}, {
+         "JULIAN", 4, 119.87685329175437`, 69.84150941200626}, {
+         "GEOFFREY", 2, 105.95551380732303`, 94.84693965763923}, {
+         "KARL", 3, 176.52652919771978`, 97.72866793996516}, {
+         "MALCOLM", 5, 229.10136104746567`, 96.96766423512457}, {
+         "DARREN", 9, 208.78014260791267`, 72.669515904182}, {
+         "TONY", 2, 126.9718691663387, 100.46381449127784`}, {
+         "ADAM", 6, 127.68880770146589`, 94.48028221612822}, {
+         "ROBIN", 12, 141.4599469528744, 111.98404127435619`}, {
+         "GARRY", 4, 206.71154959410143`, 84.6768422446463}, {
+         "ROY", 12, 163.8539141284106, 84.15697102253009}, {
+         "VINCENT", 2, 160.1213249700257, 77.0446765932462}, {
+         "MOHAMMED", 2, 151.7836293134373, 78.13564123597185}, {
+         "GORDON", 8, 181.44419355072654`, 94.82713879880006}, {
+         "DUNCAN", 4, 193.09290144456824`, 83.91489379815732}, {
+         "LESLIE", 11, 154.75174723535383`, 87.32542821039573}, {
+         "ALEXANDER", 6, 169.22410119159633`, 108.30252203150654`}, {
+         "GREGORY", 2, 154.29681994903666`, 82.95987299315436}, {
+         "GARETH", 4, 193.2110389226156, 83.59190213634156}, {
+         "RONALD", 9, 161.95644405334897`, 85.64444737674407}, {
+         "DOUGLAS", 4, 150.64818907747568`, 107.56682611705162`}, {
+         "FRANCIS", 11, 138.09177132764862`, 80.52985597266105}, {
+         "STEWART", 11, 151.05205304062127`, 101.95801961610327`}, {
+         "GRAEME", 10, 156.0335430540477, 91.77175186776087}, {
+         "GUY", 1, 124.57256218718436`, 81.65467968455754}, {
+         "TERRY", 2, 146.16751199269305`, 79.11383847840595}, {
+         "MARTYN", 4, 137.13803190305305`, 101.53066053567007`}, {
+         "ERIC", 5, 172.29250970856467`, 77.75735658358776}, {
+         "ALLAN", 4, 164.60048206584625`, 86.10022649731647}, {
+         "GERARD", 6, 181.85444864043038`, 68.7501447845252}, {
+         "GERALD", 6, 145.25052474082028`, 88.26846724654592}, {
+         "HOWARD", 3, 136.62285584281238`, 87.49595405429011}, {
+         "JASON", 2, 170.0348897175493, 122.38839723027769`}, {
+         "IAIN", 10, 145.49730460626753`, 72.88261695587897}, {
+         "GLENN", 5, 135.4407079475314, 87.18477046716872}, {
+         "DENNIS", 4, 165.14624643335776`, 82.23620350949983}, {
+         "GAVIN", 6, 176.23193719254925`, 115.15320471750704`}, {
+         "BRUCE", 3, 149.07119230784724`, 99.43225371318356}, {
+         "DONALD", 6, 170.337454459101, 96.75321322303873}, {
+         "DOMINIC", 1, 172.71051491107636`, 71.69724645980943}, {
+         "SUSAN", 11, 152.5421599770109, 101.00837045746091`}, {
+         "JULIE", 3, 157.11797114142047`, 77.80264325704188}, {
+         "KAREN", 2, 146.986722004392, 89.44171968339825}, {
+         "JACQUELINE", 10, 173.38511640238693`, 124.67744206118425`}, {
+         "DEBORAH", 2, 169.73706977240633`, 79.99217502416418}, {
+         "TRACEY", 1, 160.26608687294748`, 78.02485623712724}, {
+         "JANE", 12, 128.68046215448234`, 78.00861341373839}, {
+         "HELEN", 11, 185.091525294274, 78.66553208210432}, {
+         "DIANE", 2, 110.94650406355507`, 109.14057304670334`}, {
+         "SHARON", 6, 166.89690134866333`, 85.8601081469395}, {
+         "TRACY", 6, 183.40735270307533`, 87.63424257180796}, {
+         "ANGELA", 11, 161.21530159820688`, 86.18718224812194}, {
+         "SARAH", 3, 134.9382624328121, 73.25733241570984}, {
+         "ALISON", 10, 173.11607709033655`, 85.72641502143426}, {
+         "CAROLINE", 8, 150.86618593744893`, 100.24076867409453`}, {
+         "AMANDA", 8, 130.34899182596146`, 97.53504040881036}, {
+         "SANDRA", 11, 169.79780794969815`, 82.1549916233784}, {
+         "LINDA", 5, 152.8188441117288, 89.09710202914869}, {
+         "CATHERINE", 1, 163.33952357516313`, 89.5950862353509}, {
+         "ELIZABETH", 7, 176.29129258765772`, 82.90698583783207}, {
+         "CAROL", 9, 175.13634992809267`, 101.86417444139364`}, {
+         "JOANNE", 9, 136.85921292649266`, 91.28211844494145}, {
+         "WENDY", 4, 180.75403493416258`, 83.57795798792746}, {
+         "JANET", 8, 194.2630327301081, 94.64980160529915}, {
+         "DAWN", 9, 164.65158151389124`, 88.45384038940477}, {
+         "CHRISTINE", 5, 155.94472494135837`, 107.33290617965682`}, {
+         "NICOLA", 4, 167.19931733411173`, 94.59570390951187}, {
+         "GILLIAN", 2, 171.56827824364018`, 78.7237261808526}, {
+         "SALLY", 11, 125.03424313206318`, 114.78672941493934`}, {
+         "MARIA", 8, 153.30870978104576`, 107.77689885575363`}, {
+         "MICHELLE", 9, 152.26145406957954`, 87.30768422277582}, {
+         "DEBRA", 5, 157.0759526406178, 96.10460191359488}, {
+         "PAULA", 5, 185.45827545765678`, 107.69038779867782`}, {
+         "ANNE", 3, 154.14540246860867`, 118.9690123437473}, {
+         "LORRAINE", 7, 167.12427438454623`, 103.34629135119962`}, {
+         "PATRICIA", 11, 132.74138361730712`, 91.78774290236815}, {
+         "MARY", 10, 199.63889357008384`, 97.5805957419186}, {
+         "DENISE", 4, 125.84472314047512`, 99.26474358683468}, {
+         "MARGARET", 7, 150.16206757739917`, 83.76650697083167}, {
+         "ANN", 1, 151.33756035387142`, 86.56533007552348}, {
+         "BEVERLEY", 7, 131.44848132842355`, 93.01938470570256}, {
+         "DONNA", 4, 114.57656438669204`, 113.51700036003179`}, {
+         "ELAINE", 11, 145.025298831917, 101.41638654307926`}, {
+         "FIONA", 5, 137.17738208303356`, 94.13575401835656}, {
+         "JENNIFER", 4, 152.50580716141351`, 86.44763756596542}, {
+         "LESLEY", 2, 150.7750097000099, 79.42336398024335}, {
+         "LOUISE", 9, 143.08006491418837`, 85.80083315688282}, {
+         "MANDY", 1, 167.63830272621573`, 104.55798982003577`}, {
+         "TINA", 10, 157.7197620089166, 89.07876415054176}, {
+         "JAYNE", 1, 170.90499888657098`, 78.70201063547256}, {
+         "SUZANNE", 7, 161.2122790124351, 79.67287666658835}, {
+         "ANDREA", 7, 162.7305463195309, 99.34980212516021}, {
+         "PAULINE", 9, 179.05529647719953`, 85.5312677062828}, {
+         "LISA", 2, 116.69414381814249`, 97.06904442895089}, {
+         "CLAIRE", 8, 149.0292012363618, 78.4228693468191}, {
+         "KIM", 6, 187.76515717559573`, 83.20412702152069}, {
+         "JULIA", 6, 156.14852994118095`, 85.37889703368607}, {
+         "TERESA", 6, 151.17879489630934`, 102.71367272666635`}, {
+         "HEATHER", 6, 163.07286611103962`, 92.40100451386219}, {
+         "KATHRYN", 12, 184.75303949166766`, 86.52149578589932}, {
+         "LYNN", 10, 150.17817241678418`, 93.72711343678498}, {
+         "RUTH", 8, 162.76431483389447`, 99.62689640287944}, {
+         "YVONNE", 6, 144.10893436289984`, 99.62426505750014}, {
+         "JUDITH", 5, 149.91887417331418`, 86.40255856193437}, {
+         "MELANIE", 3, 136.28771493784708`, 94.80692490214447}, {
+         "MARIE", 2, 167.6653048144736, 89.65238548044184}, {
+         "PAMELA", 11, 158.89027280054248`, 94.53763636888264}, {
+         "CAROLE", 12, 147.69964354295337`, 85.35773367247377}, {
+         "BARBARA", 2, 199.3407114555873, 78.60259219368085}, {
+         "GAIL", 3, 159.50892514196858`, 105.61993355210532`}, {
+         "LYNNE", 8, 123.45120422882107`, 98.73106755897471}, {
+         "CLARE", 8, 179.06459801368496`, 73.27199826779383}, {
+         "JANICE", 2, 162.6692851509827, 85.8776485076234}, {
+         "RACHEL", 1, 155.66935422033617`, 78.2114410984266}, {
+         "JILL", 12, 140.33618437706988`, 92.10863031514283}, {
+         "KATHERINE", 6, 176.97180029602384`, 93.27870824127933}, {
+         "KATHLEEN", 2, 115.24776264831024`, 77.42400739754079}, {
+         "SHIRLEY", 1, 139.2283038574463, 86.16989739830949}, {
+         "ANNETTE", 3, 173.1940199550529, 87.7035182790227}, {
+         "CAROLYN", 12, 169.841032761887, 95.2398797184451}, {
+         "ANNA", 7, 152.8414988373677, 110.39908370304303`}, {
+         "SARA", 2, 157.44782946880386`, 76.02727779193724}, {
+         "VALERIE", 10, 144.76141736737858`, 96.66639876419364}, {
+         "CHERYL", 8, 168.12079778406425`, 84.10735587269843}, {
+         "JEANETTE", 8, 179.43840178465385`, 87.86855322944584}, {
+         "KAY", 9, 168.16480833599834`, 79.91980517689723}, {
+         "ANITA", 3, 187.0129413660036, 100.30645322383455`}, {
+         "MAXINE", 9, 162.63770883696924`, 76.07390451273785}, {
+         "FRANCES", 11, 122.51333136410926`, 92.73398206810488}, {
+         "JOANNA", 6, 158.7750403176811, 90.33375507283642}, {
+         "THERESA", 5, 177.65535841698554`, 87.09556485059869}, {
+         "DEBBIE", 8, 152.9384121511354, 83.94182035014143}, {
+         "LYNDA", 5, 173.79508583582347`, 83.07747012152355}, {
+         "MAUREEN", 2, 147.6184015257136, 77.47736639487685}, {
+         "ROSEMARY", 3, 182.59531443916367`, 84.3036448849383}, {
+         "MICHELE", 3, 156.61567501849584`, 84.9104493028288}, {
+         "LAURA", 1, 180.06997914014616`, 79.74417454363066}, {
+         "REBECCA", 9, 173.67803213221538`, 85.14494797798156}, {
+         "SHEILA", 8, 154.72353923990676`, 88.10499652485782}, {
+         "STEPHANIE", 9, 155.46215199650666`, 
+          89.26396727334539}}, $CellContext`columnNames = {
+        "Birth Month", "Height", "Weight"}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.661686481225089*^9, 3.6616864849765253`*^9}, {
+   3.6616865407910137`*^9, 3.661686559513768*^9}, 3.6616866209018106`*^9, {
+   3.661686701176491*^9, 3.6616867080498247`*^9}, 3.6627127084496937`*^9}],
+
+Cell[TextData[{
+ "For convenience, the code for recomputing ",
+ StyleBox["grantHolders",
+  FontSlant->"Italic"],
+ " is provided below:"
+}], "Text",
+ CellChangeTimes->{{3.661686827036633*^9, 3.6616868651628323`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"boysNames", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://www.ons.gov.uk/ons/rel/vsob1/baby-names--england-and-wales/\
+1904-1994/top-100-baby-names-historical-data.xls\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Data\>\"", ",", "\"\<Boys\>\"", ",", 
+       RowBox[{"Range", "[", 
+        RowBox[{"6", ",", "105"}], "]"}], ",", "8"}], "}"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"girlsNames", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://www.ons.gov.uk/ons/rel/vsob1/baby-names--england-and-wales/\
+1904-1994/top-100-baby-names-historical-data.xls\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Data\>\"", ",", "\"\<Girls\>\"", ",", 
+       RowBox[{"Range", "[", 
+        RowBox[{"6", ",", "105"}], "]"}], ",", "8"}], "}"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"grantHoldersNames", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{"boysNames", ",", "girlsNames"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"grantHoldersBirthMonth", "=", 
+   RowBox[{"RandomInteger", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "12"}], "}"}], ",", 
+     RowBox[{"Length", "[", "grantHoldersNames", "]"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"grantHoldersHeight", "=", 
+   RowBox[{"RandomVariate", "[", 
+    RowBox[{
+     RowBox[{"NormalDistribution", "[", 
+      RowBox[{"160", ",", "20"}], "]"}], ",", 
+     RowBox[{"Length", "[", "grantHoldersNames", "]"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"grantHoldersWeight", "=", 
+   RowBox[{"RandomVariate", "[", 
+    RowBox[{
+     RowBox[{"SkewNormalDistribution", "[", 
+      RowBox[{"75", ",", "20", ",", "5"}], "]"}], ",", 
+     RowBox[{"Length", "[", "grantHoldersNames", "]"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"grantHolders", "=", 
+   RowBox[{"Transpose", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "grantHoldersNames", ",", "grantHoldersBirthMonth", ",", 
+      "grantHoldersHeight", ",", "grantHoldersWeight"}], "}"}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.66167382009092*^9, 3.6616738532312403`*^9}, {
+   3.661673909900702*^9, 3.661673940665359*^9}, {3.6616739706816177`*^9, 
+   3.661673981627241*^9}, {3.6616740468349*^9, 3.661674096974449*^9}, {
+   3.661674129589719*^9, 3.661674129870181*^9}, {3.661674235306056*^9, 
+   3.661674237050056*^9}, {3.6616811592386627`*^9, 3.6616811674446363`*^9}, 
+   3.66271161442969*^9}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Histogram is a new visualisation function but works similarly to other charts \
+- create a Histogram showing the distribution of birth months in the dataset \
+through the use of the Part function\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.661686876862461*^9, 3.661686926905328*^9}, {
+  3.661687005022933*^9, 3.661687009771048*^9}}],
+
+Cell[TextData[{
+ "Wrap the Histogram in Manipulate and provide buttons that allow the user to \
+switch between the different columns of ",
+ StyleBox["grantHolders",
+  FontSlant->"Italic"],
+ "."
+}], "ItemNumbered",
+ CellChangeTimes->{{3.661686876862461*^9, 3.6616870350094433`*^9}, {
+  3.661687124229167*^9, 3.661687124234253*^9}}],
+
+Cell["\<\
+Provide names to the columns following the steps in the first exercise\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.661686876862461*^9, 3.6616870350094433`*^9}, {
+  3.661687124229167*^9, 3.661687139124713*^9}}],
+
+Cell["\<\
+Allow the user to switch between Histogram, DistributionChart and Histogram\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.661686876862461*^9, 3.661687059747019*^9}}]
+}, Open  ]],
+
+Cell[TextData[StyleBox["Additional Steps ",
+ FontWeight->"Bold"]], "Text",
+ CellChangeTimes->{{3.661687062331338*^9, 3.661687083561016*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Create a list of the column names", "ItemNumbered",
+ CellChangeTimes->{{3.661686876862461*^9, 3.6616870597324667`*^9}, {
+  3.661687099280632*^9, 3.6616871567286158`*^9}}],
+
+Cell["\<\
+Use the function StringJoin to label the chart with \
+\[OpenCurlyDoubleQuote]Distribution of <<columnName>> Amongst Grant Holders\
+\[CloseCurlyDoubleQuote]. To achieve this you will benefit from using this \
+list:\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.661686876862461*^9, 3.6616870597324667`*^9}, {
+  3.661687099280632*^9, 3.661687174360792*^9}, {3.6627116578180323`*^9, 
+  3.662711704592595*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"columnNames", "=", 
+   RowBox[{"{", 
+    RowBox[{"\"\<Height\>\"", ",", "\"\<Weight\>\""}], "}"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6616824755611763`*^9, 3.66168248991115*^9}, 
+   3.662712725431814*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 892},
+WindowMargins->{{Automatic, 143}, {-26, Automatic}},
+FrontEndVersion->"10.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 10, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 578, 8, 92, "Title"],
+Cell[CellGroupData[{
+Cell[1183, 34, 116, 1, 64, "Section"],
+Cell[1302, 37, 256, 5, 49, "Text"],
+Cell[CellGroupData[{
+Cell[1583, 46, 602, 14, 80, "Input"],
+Cell[2188, 62, 1768, 34, 116, "Output"]
+}, Open  ]],
+Cell[3971, 99, 284, 6, 30, "Text"],
+Cell[4258, 107, 2119, 41, 144, "Output"],
+Cell[CellGroupData[{
+Cell[6402, 152, 142, 1, 30, "ItemNumbered"],
+Cell[6547, 155, 227, 4, 49, "ItemNumbered"],
+Cell[6777, 161, 182, 4, 30, "ItemNumbered"],
+Cell[6962, 167, 149, 1, 30, "ItemNumbered"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7160, 174, 172, 2, 64, "Section"],
+Cell[7335, 178, 443, 8, 68, "Text"],
+Cell[7781, 188, 454, 12, 80, "Input"],
+Cell[8238, 202, 284, 6, 30, "Text"],
+Cell[8525, 210, 2789, 53, 366, "Output"],
+Cell[CellGroupData[{
+Cell[11339, 267, 316, 6, 49, "ItemNumbered"],
+Cell[11658, 275, 90, 1, 28, "Item"],
+Cell[11751, 278, 92, 1, 28, "Item"],
+Cell[11846, 281, 285, 6, 49, "ItemNumbered"],
+Cell[12134, 289, 260, 6, 30, "ItemNumbered"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12443, 301, 175, 2, 64, "Section"],
+Cell[12621, 305, 399, 7, 68, "Text"],
+Cell[13023, 314, 15774, 253, 364, "Output"],
+Cell[28800, 569, 215, 6, 30, "Text"],
+Cell[29018, 577, 2424, 64, 318, "Input"],
+Cell[CellGroupData[{
+Cell[31467, 645, 342, 6, 49, "ItemNumbered"],
+Cell[31812, 653, 330, 8, 49, "ItemNumbered"],
+Cell[32145, 663, 219, 4, 30, "ItemNumbered"],
+Cell[32367, 669, 173, 3, 30, "ItemNumbered"]
+}, Open  ]],
+Cell[32555, 675, 140, 2, 30, "Text"],
+Cell[CellGroupData[{
+Cell[32720, 681, 176, 2, 30, "ItemNumbered"],
+Cell[32899, 685, 413, 8, 49, "ItemNumbered"]
+}, Open  ]],
+Cell[33327, 696, 248, 7, 28, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

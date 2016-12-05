@@ -1,0 +1,354 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12710,        346]
+NotebookOptionsPosition[     11090,        290]
+NotebookOutlinePosition[     11446,        306]
+CellTagsIndexPosition[     11403,        303]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Associations", "Title",
+ CellChangeTimes->{{3.655552218285063*^9, 3.655552226025772*^9}, {
+   3.6591832070896397`*^9, 3.6591832167727127`*^9}, {3.659183617524934*^9, 
+   3.659183638786973*^9}, {3.6591837390277233`*^9, 3.659183757542976*^9}, {
+   3.6591838212196493`*^9, 3.659183823220511*^9}, {3.659184479677973*^9, 
+   3.659184483365548*^9}, {3.6591852029720583`*^9, 3.659185207288683*^9}, {
+   3.6627284053047047`*^9, 3.662728405416157*^9}, {3.662729401647541*^9, 
+   3.66272940449356*^9}, {3.662799157839304*^9, 3.662799158212596*^9}, {
+   3.6635746475876226`*^9, 3.66357464768878*^9}, 3.664087563915083*^9}],
+
+Cell["\<\
+Thus far we have used Lists to store and operate on our data, however it can \
+be incredibly useful to use Associations. Associations are similar to \
+associative arrays and dictionaries found in other programming languages. \
+They are introduced here to provide a basic introduction only.\
+\>", "Text",
+ CellChangeTimes->{{3.662728411535742*^9, 3.6627285223387127`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"assoc", "=", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<Key1\>\"", "\[Rule]", "1"}], ",", 
+     RowBox[{"\"\<Key 2\>\"", "\[Rule]", "3"}], ",", 
+     RowBox[{"\"\<This is my third key\>\"", "\[Rule]", "\"\<data\>\""}]}], 
+    "|>"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.662728524546283*^9, 3.662728591279059*^9}, {
+  3.6627292668959618`*^9, 3.662729268449264*^9}}],
+
+Cell["\<\
+Data can be accessed directly from an association using the key:\
+\>", "Text",
+ CellChangeTimes->{{3.662729284837614*^9, 3.6627292991588783`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"assoc", "[", 
+  RowBox[{"[", "\"\<Key 2\>\"", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.662729300804017*^9, 3.662729308542307*^9}}],
+
+Cell[BoxData["3"], "Output",
+ CellChangeTimes->{3.662729308960779*^9}]
+}, Open  ]],
+
+Cell["\<\
+The following code creates a list of associations using the function Map - it \
+is beyond the scope of this course but is addressed in detail in the Wolfram \
+Language programming course:\
+\>", "Text",
+ CellChangeTimes->{{3.6627294913783693`*^9, 3.662729540496049*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"desktopItems$Headers", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<Timestamp\>\"", ",", "\"\<Desktop Items\>\"", ",", "\"\<OS\>\"", 
+     ",", "\"\<Department\>\"", ",", "\"\<University\>\""}], "}"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"desktopItems$Associations", " ", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"AssociationThread", "[", 
+       RowBox[{"desktopItems$Headers", "\[Rule]", "#"}], "]"}], "&"}], ",", 
+     "desktopItems$Data"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.659183774482112*^9, 3.659183775586823*^9}, {
+   3.659183963672213*^9, 3.6591840097028008`*^9}, 3.659184412335277*^9, 
+   3.6627297917399473`*^9}],
+
+Cell["\<\
+This structure is useful as all Desktop Items can be extracted easily:\
+\>", "Text",
+ CellChangeTimes->{{3.662729832716797*^9, 3.6627298537667713`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"desktopItems$Associations", "[", 
+  RowBox[{"[", 
+   RowBox[{"All", ",", "\"\<Desktop Items\>\""}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.662729828251193*^9, 3.662729860055945*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "20.`", ",", "21.`", ",", "0.`", ",", "0.`", ",", "46.`", ",", "18.`", ",", 
+   "0.`", ",", "2.`", ",", "89.`", ",", "23.`", ",", "4.`", ",", "81.`", ",", 
+   "10.`", ",", "22.`", ",", "146.`", ",", "99.`", ",", "104.`", ",", "5.`", 
+   ",", "35.`", ",", "0.`", ",", "44.`", ",", "194.`", ",", "4.`", ",", 
+   "28.`", ",", "21.`", ",", "0.`", ",", "8.`", ",", "7.`", ",", "39.`", ",", 
+   "15.`", ",", "22.`", ",", "31.`", ",", "85.`", ",", "19.`", ",", "0.`", 
+   ",", "0.`", ",", "3.`", ",", "4.`", ",", "140.`", ",", "27.`", ",", "7.`", 
+   ",", "92.`", ",", "1.`", ",", "137.`", ",", "68.`", ",", "10.`", ",", 
+   "10.`", ",", "113.`", ",", "27.`", ",", "34.`", ",", "12.`", ",", "22.`", 
+   ",", "16.`", ",", "6.`", ",", "21.`", ",", "54.`", ",", "82.`", ",", 
+   "25.`", ",", "9.`", ",", "17.`", ",", "29.`", ",", "48.`", ",", "4.`", ",",
+    "9.`", ",", "16.`", ",", "1.`", ",", "19.`", ",", "198.`", ",", "11.`", 
+   ",", "59.`", ",", "0.`", ",", "15.`", ",", "72.`", ",", "29.`", ",", 
+   "35.`", ",", "38.`", ",", "8.`", ",", "54.`", ",", "13.`", ",", "24.`", 
+   ",", "82.`", ",", "31.`", ",", "24.`", ",", "84.`", ",", "76.`", ",", 
+   "34.`", ",", "6.`", ",", "0.`", ",", "53.`", ",", "0.`", ",", "17.`", ",", 
+   "110.`", ",", "60.`", ",", "3.`", ",", "15.`", ",", "7.`", ",", "48.`", 
+   ",", "9.`", ",", "50.`"}], "}"}]], "Output",
+ CellChangeTimes->{3.662729860418818*^9}]
+}, Open  ]],
+
+Cell["\<\
+Associations allow for SQL-like queries to be written and offer a more \
+streamlined and (computationally) faster approach to filtering data than \
+using Cases (or /.) on a list.
+
+The following query will select all elements where the key OS is equal to \
+\[OpenCurlyDoubleQuote]Mac (OS X)\[CloseCurlyDoubleQuote]\
+\>", "Text",
+ CellChangeTimes->{{3.663579121768373*^9, 3.663579240997813*^9}, {
+  3.663579338246004*^9, 3.663579350158848*^9}}],
+
+Cell[BoxData[
+ RowBox[{"macOS", "=", 
+  RowBox[{
+   RowBox[{"Query", "[", 
+    RowBox[{"Select", "[", 
+     RowBox[{
+      RowBox[{"#\"OS\"", "\[Equal]", "\"\<Mac (OS X)\>\""}], "&"}], "]"}], 
+    "]"}], "[", "desktopItems$Associations", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6635791931542587`*^9, 3.663579211839258*^9}}],
+
+Cell["Additional criteria may be added easily:", "Text",
+ CellChangeTimes->{{3.6635793638963747`*^9, 3.663579376832683*^9}}],
+
+Cell[BoxData[
+ RowBox[{"messyMacs", "=", 
+  RowBox[{
+   RowBox[{"Query", "[", "\[IndentingNewLine]", 
+    RowBox[{"Select", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"#\"OS\"", "\[Equal]", "\"\<Mac (OS X)\>\""}], ")"}], "&&", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(", 
+        RowBox[{"#\"Desktop Items\"", " ", ">", " ", "20"}], ")"}]}], "&"}], 
+     "]"}], "]"}], "[", "desktopItems$Associations", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6635791931542587`*^9, 3.663579211839258*^9}, {
+  3.663579378488552*^9, 3.663579466306614*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Exercises", "Title",
+ CellChangeTimes->{{3.663579711325551*^9, 3.6635797315079193`*^9}, {
+   3.663580347345605*^9, 3.663580349584774*^9}, {3.663580553303797*^9, 
+   3.6635805536527653`*^9}, {3.663580593109089*^9, 3.66358059382705*^9}, 
+   3.664087581217237*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Practicing Queries", "Section",
+ CellChangeTimes->{{3.663579748013123*^9, 3.663579751915773*^9}}],
+
+Cell["\<\
+It is useful to have example data sets to learn how functions work, use the \
+skills learned previously to create and then filter a dataset with the \
+following structure:\
+\>", "Text",
+ CellChangeTimes->{{3.6635799721740522`*^9, 3.6635800432068853`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"testAssociation", "=", 
+  RowBox[{"{", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"<|", 
+     RowBox[{
+      RowBox[{"\"\<Category\>\"", "->", "\"\<A\>\""}], ",", 
+      RowBox[{"\"\<Size\>\"", "->", "10"}], ",", 
+      RowBox[{"\"\<Users\>\"", "->", "1021"}], ",", 
+      RowBox[{"\"\<Interactions\>\"", "\[Rule]", "12"}]}], "|>"}], ",", 
+    "\[IndentingNewLine]", "..."}], "\[IndentingNewLine]", "}"}]}]], "Input",
+ CellChangeTimes->{{3.66357975561989*^9, 3.663579756224229*^9}, {
+  3.66357986845759*^9, 3.663579952001719*^9}, {3.663580045580887*^9, 
+  3.66358004733597*^9}}],
+
+Cell["\<\
+Use Table to create a list of associations with 50 individuals in it, the \
+following template will help ypu\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.663580058373479*^9, 3.663580099300675*^9}, {
+  3.66358049165256*^9, 3.66358049839141*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\"\<Key 1\>\"", ",", "\"\<Value\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Key 2\>\"", ",", 
+       RowBox[{"RandomInteger", "[", "10", "]"}]}], "}"}]}], "}"}], ",", 
+   "5"}], "]"}]], "Input",
+ CellChangeTimes->{{3.663580100159631*^9, 3.663580144561861*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Ensure your association\[CloseCurlyQuote]s keys have the following properties:\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.6635801497927933`*^9, 3.663580167940192*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+\[OpenCurlyDoubleQuote]Category\[CloseCurlyDoubleQuote] should make a random \
+choice from {\[OpenCurlyDoubleQuote]A\[CloseCurlyDoubleQuote],\
+\[CloseCurlyDoubleQuote]B\[CloseCurlyDoubleQuote],\[CloseCurlyDoubleQuote]C\
+\[CloseCurlyDoubleQuote],\[CloseCurlyDoubleQuote]D\[CloseCurlyDoubleQuote]}\
+\>", "SubitemNumbered",
+ CellChangeTimes->{{3.6635801497927933`*^9, 3.663580191712576*^9}}],
+
+Cell["\[OpenCurlyDoubleQuote]Size\[CloseCurlyDoubleQuote] should be a random \
+integer between 5 and 50", "SubitemNumbered",
+ CellChangeTimes->{{3.6635801497927933`*^9, 3.663580209398222*^9}}],
+
+Cell["\<\
+\[OpenCurlyDoubleQuote]Users\[CloseCurlyDoubleQuote] should be a random \
+variate from a NormalDistribution with a mean of 1500 and standard deviation \
+of 400\
+\>", "SubitemNumbered",
+ CellChangeTimes->{{3.6635801497927933`*^9, 3.663580244423707*^9}}],
+
+Cell["\<\
+\[OpenCurlyDoubleQuote]Interactions\[CloseCurlyDoubleQuote] should be a \
+random variate from the following: SkewNormalDistribution[10,5,-6]\
+\>", "SubitemNumbered",
+ CellChangeTimes->{{3.6635801497927933`*^9, 3.66358030754244*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Write a query that only selects those entries where \
+\[OpenCurlyDoubleQuote]Category\[CloseCurlyDoubleQuote] is \
+\[OpenCurlyDoubleQuote]A\[CloseCurlyDoubleQuote] OR \[OpenCurlyDoubleQuote]B\
+\[CloseCurlyDoubleQuote]\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.663580314721489*^9, 3.663580344378583*^9}}],
+
+Cell["\<\
+Write a query that selects all entries with greater than 8 \
+\[OpenCurlyDoubleQuote]Interactions\[CloseCurlyDoubleQuote] and a \
+\[OpenCurlyDoubleQuote]Size\[CloseCurlyDoubleQuote] greater than 11 from \
+\[OpenCurlyDoubleQuote]Category\[CloseCurlyDoubleQuote] \
+\[OpenCurlyDoubleQuote]C\[CloseCurlyDoubleQuote] and \[OpenCurlyDoubleQuote]D\
+\[CloseCurlyDoubleQuote]\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.663580314721489*^9, 3.663580438618878*^9}}],
+
+Cell["\<\
+Tally the number of individuals in each category and display the results in a \
+BarChart\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.6635804552368298`*^9, 3.663580528317346*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 892},
+WindowMargins->{{108, Automatic}, {Automatic, 24}},
+FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (April 11, \
+2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 617, 8, 92, "Title"],
+Cell[1200, 32, 381, 6, 68, "Text"],
+Cell[1584, 40, 411, 10, 28, "Input"],
+Cell[1998, 52, 156, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[2179, 59, 159, 3, 28, "Input"],
+Cell[2341, 64, 70, 1, 28, "Output"]
+}, Open  ]],
+Cell[2426, 68, 279, 5, 49, "Text"],
+Cell[2708, 75, 708, 18, 63, "Input"],
+Cell[3419, 95, 162, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[3606, 102, 213, 4, 28, "Input"],
+Cell[3822, 108, 1431, 21, 114, "Output"]
+}, Open  ]],
+Cell[5268, 132, 452, 9, 87, "Text"],
+Cell[5723, 143, 324, 8, 28, "Input"],
+Cell[6050, 153, 124, 1, 30, "Text"],
+Cell[6177, 156, 598, 14, 80, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6812, 175, 267, 4, 92, "Title"],
+Cell[CellGroupData[{
+Cell[7104, 183, 103, 1, 64, "Section"],
+Cell[7210, 186, 265, 5, 49, "Text"],
+Cell[7478, 193, 607, 13, 80, "Input"],
+Cell[8088, 208, 253, 5, 30, "ItemNumbered"],
+Cell[8344, 215, 388, 11, 28, "Input"],
+Cell[CellGroupData[{
+Cell[8757, 230, 178, 3, 30, "ItemNumbered"],
+Cell[CellGroupData[{
+Cell[8960, 237, 398, 6, 24, "SubitemNumbered"],
+Cell[9361, 245, 192, 2, 24, "SubitemNumbered"],
+Cell[9556, 249, 262, 5, 41, "SubitemNumbered"],
+Cell[9821, 256, 242, 4, 24, "SubitemNumbered"]
+}, Open  ]],
+Cell[10078, 263, 315, 6, 30, "ItemNumbered"],
+Cell[10396, 271, 463, 8, 49, "ItemNumbered"],
+Cell[10862, 281, 188, 4, 30, "ItemNumbered"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

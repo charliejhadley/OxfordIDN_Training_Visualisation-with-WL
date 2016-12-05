@@ -1,0 +1,464 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16600,        455]
+NotebookOptionsPosition[     14648,        395]
+NotebookOutlinePosition[     15947,        432]
+CellTagsIndexPosition[     15904,        429]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Exercises: Parts and BarCharts", "Title",
+ CellChangeTimes->{{3.659169073065624*^9, 3.6591690839888353`*^9}, {
+  3.659182499836954*^9, 3.65918251106387*^9}, {3.659182891838498*^9, 
+  3.659182902488941*^9}, {3.66167550777286*^9, 3.661675507849574*^9}, {
+  3.6635745911338778`*^9, 3.663574591268847*^9}, {3.663576975222393*^9, 
+  3.663576976390739*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Department BarChart", "Section",
+ CellChangeTimes->{{3.659182491973536*^9, 3.6591824922652483`*^9}, {
+  3.659182523461635*^9, 3.6591825488985167`*^9}}],
+
+Cell["\<\
+Using the data you entered into your notebook previously build a BarChart, in \
+case you do not have the data still at hand here is some example data:\
+\>", "Text",
+ CellChangeTimes->{{3.6616751865138597`*^9, 3.6616752246621103`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"departments", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<Physics\>\"", ",", "\"\<English\>\"", ",", "\"\<Chemistry\>\"", ",", 
+     "\"\<IT Services\>\"", ",", "\"\<Physics\>\"", ",", "\"\<Zoology\>\"", 
+     ",", "\"\<English\>\"", ",", "\"\<Chemistry\>\"", ",", 
+     "\"\<Physics\>\""}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"monthsAtOx", "=", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", 
+     RowBox[{"12", "*", "3"}], ",", 
+     RowBox[{"3", "*", "12"}], ",", 
+     RowBox[{"6", "*", "12"}], ",", 
+     RowBox[{"7", "*", "12"}], ",", 
+     RowBox[{"10", "*", "12"}], ",", "3", ",", "8", ",", "10"}], "}"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.655552126028328*^9, 3.6555521454869204`*^9}, {
+  3.655552668043029*^9, 3.655552674893113*^9}, {3.6616752494401217`*^9, 
+  3.661675253496347*^9}}],
+
+Cell["Your output should look something like this:", "Text",
+ CellChangeTimes->{{3.663577032868114*^9, 3.6635770456474533`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {Opacity[0], PointBox[{0., 0.4451141552511416}]}, {{}, 
+    {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+     0.6649999999999999], Thickness[Small]}], 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+      0.6649999999999999], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{0., 0.54337899543379}, {3., 1.45662100456621}, 
+            "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{51.75, 343.11224489795916`}, {54.458630727176995`,
+            88.11029813839563}}],
+         StatusArea[#, 3]& ,
+         TagBoxNote->"3"],
+        StyleBox["3", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[3, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+      0.6649999999999999], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{0., 1.54337899543379}, {2., 2.45662100456621}, 
+            "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{51.75, 246.15816326530611`}, {18.15755491189259, 
+           51.80922232311122}}],
+         StatusArea[#, 2]& ,
+         TagBoxNote->"2"],
+        StyleBox["2", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[2, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+      0.6649999999999999], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{0., 2.5433789954337898`}, {2., 3.45662100456621}, 
+            "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{51.75, 
+           246.15816326530611`}, {-18.143520903391817`, 15.508146507826822`}}],
+         StatusArea[#, 2]& ,
+         TagBoxNote->"2"],
+        StyleBox["2", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[2, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+      0.6649999999999999], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{0., 3.5433789954337898`}, {1., 4.45662100456621}, 
+            "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{51.75, 
+           149.20408163265307`}, {-54.44459671867624, -20.792929307457584`}}],
+         
+         StatusArea[#, 1]& ,
+         TagBoxNote->"1"],
+        StyleBox["1", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[1, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+      0.6649999999999999], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{0., 4.543378995433789}, {1., 5.456621004566209}, 
+            "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{51.75, 
+           149.20408163265307`}, {-90.74567253396062, -57.09400512274199}}],
+         StatusArea[#, 1]& ,
+         TagBoxNote->"1"],
+        StyleBox["1", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[1, {}], "Tooltip"]& ]}}, {}, {}}, {}, {}, 
+   StyleBox[{
+     {Thickness[Tiny], 
+      LineBox[{{0., 0.4451141552511416}, {0., 5.55685114155251}}], 
+      StyleBox[{}, "GraphicsLabel",
+       StripOnInput->False]}, 
+     StyleBox[{
+       {Thickness[Tiny], 
+        LineBox[{{0., 0.5433789954337899}, 
+          Offset[{-6., 0.}, {0., 0.5433789954337899}]}], 
+        LineBox[{{0., 5.456621004566209}, 
+          Offset[{-6., 0.}, {0., 5.456621004566209}]}], {{}, {}, {}, {}, {}, {
+          LineBox[{{0., 1.4566210045662098`}, 
+            Offset[{-4., 0.}, {0., 1.4566210045662098`}]}], 
+          LineBox[{{0., 1.5433789954337898`}, 
+            Offset[{-4., 0.}, {0., 1.5433789954337898`}]}], 
+          LineBox[{{0., 2.4566210045662094`}, 
+            Offset[{-4., 0.}, {0., 2.4566210045662094`}]}], 
+          LineBox[{{0., 2.5433789954337893`}, 
+            Offset[{-4., 0.}, {0., 2.5433789954337893`}]}], 
+          LineBox[{{0., 3.456621004566209}, 
+            Offset[{-4., 0.}, {0., 3.456621004566209}]}], 
+          LineBox[{{0., 3.543378995433789}, 
+            Offset[{-4., 0.}, {0., 3.543378995433789}]}], 
+          LineBox[{{0., 4.456621004566209}, 
+            Offset[{-4., 0.}, {0., 4.456621004566209}]}], 
+          LineBox[{{0., 4.543378995433789}, 
+            Offset[{-4., 0.}, {0., 4.543378995433789}]}]}, {}}}, 
+       StyleBox[
+        {Thickness[Tiny], 
+         InsetBox["\<\"Physics\"\>", 
+          Offset[{-1.9999999999999998`, 0.}, {0., 0.9999999999999998}], {1, 0},
+           Automatic, {1, 0}], 
+         InsetBox["\<\"English\"\>", 
+          Offset[{-1.9999999999999998`, 0.}, {0., 1.9999999999999996`}], {1, 0},
+           Automatic, {1, 0}], 
+         InsetBox["\<\"Chemistry\"\>", 
+          Offset[{-1.9999999999999998`, 0.}, {0., 2.999999999999999}], {1, 0},
+           Automatic, {1, 0}], 
+         InsetBox["\<\"IT Services\"\>", 
+          Offset[{-1.9999999999999998`, 0.}, {0., 3.999999999999999}], {1, 0},
+           Automatic, {1, 0}], 
+         InsetBox["\<\"Zoology\"\>", 
+          Offset[{-1.9999999999999998`, 0.}, {0., 4.999999999999999}], {1, 0},
+           Automatic, {1, 0}]}, "GraphicsLabel",
+        StripOnInput->False]}, "GraphicsTicks",
+      StripOnInput->False]}, "GraphicsAxes",
+    StripOnInput->False,
+    Antialiasing->False]},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, False},
+  AxesLabel->{None, None},
+  AxesOrigin->{0., 0.4451141552511416},
+  CoordinatesToolOptions:>{"DisplayFunction" -> ({
+      Identity[
+       Part[#, 1]], 
+      Identity[
+       Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+      Identity[
+       Part[#, 1]], 
+      Identity[
+       Part[#, 2]]}& )},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{{{1., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0]], TraditionalForm], {0.004, 0}}, {1., 
+       FormBox["\"Physics\"", TraditionalForm], 0}, {2., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0]], TraditionalForm], {0.004, 0}}, {2., 
+       FormBox["\"English\"", TraditionalForm], 0}, {3., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0]], TraditionalForm], {0.004, 0}}, {3., 
+       FormBox["\"Chemistry\"", TraditionalForm], 0}, {4., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0]], TraditionalForm], {0.004, 0}}, {4., 
+       FormBox["\"IT Services\"", TraditionalForm], 0}, {4.999999999999999, 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0]], TraditionalForm], {0.004, 0}}, {4.999999999999999, 
+       FormBox["\"Zoology\"", TraditionalForm], 0}}, {{1., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0]], TraditionalForm], {0.004, 0}}, {2., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0]], TraditionalForm], {0.004, 0}}, {3., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0]], TraditionalForm], {0.004, 0}}, {4., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0]], TraditionalForm], {0.004, 0}}, {4.999999999999999, 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0]], TraditionalForm], {0.004, 0}}}}, {Automatic, Automatic}},
+  
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotLabel->FormBox["\"BarChart with a sensible title\"", TraditionalForm],
+  PlotRange->{{All, All}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.05]}, {
+     Scaled[0.02], 
+     Scaled[0.02]}},
+  Ticks->{Automatic, None}]], "Output",
+ CellChangeTimes->{{3.6591827859017897`*^9, 3.659182798117619*^9}, 
+   3.659182939232662*^9, {3.663577092493061*^9, 3.6635771015092087`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Use the ",
+ StyleBox["Part",
+  FontSlant->"Italic"],
+ " function to build a ",
+ StyleBox["BarChart",
+  FontSlant->"Italic"],
+ " from the output of Tally[departments]"
+}], "ItemNumbered",
+ CellChangeTimes->{{3.6591825517896223`*^9, 3.659182611006369*^9}}],
+
+Cell["\<\
+Refer to the documentation for BarChart to find the appropriate option to \
+achieve the following:\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.6591825517896223`*^9, 3.659182610998452*^9}, {
+  3.659182645919438*^9, 3.659182653389104*^9}, {3.659182685396946*^9, 
+  3.6591826856213627`*^9}, {3.65918281040834*^9, 3.6591828266391993`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Add an appropriate title for the chart", "SubitemNumbered",
+ CellChangeTimes->{{3.6591825517896223`*^9, 3.659182610998452*^9}, {
+  3.659182645919438*^9, 3.659182653389104*^9}, {3.659182685396946*^9, 
+  3.6591826856213627`*^9}, {3.65918281040834*^9, 3.6591828672062263`*^9}}],
+
+Cell["\<\
+Rotate the bars to run horizontally: increasing from left to right\
+\>", "SubitemNumbered",
+ CellChangeTimes->{{3.6591825517896223`*^9, 3.659182610998452*^9}, {
+  3.659182645919438*^9, 3.659182653389104*^9}, {3.659182685396946*^9, 
+  3.6591826856213627`*^9}, {3.65918281040834*^9, 3.659182867197263*^9}, {
+  3.6591829559954977`*^9, 3.6591830260833263`*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Years at Oxford BarChart", "Section",
+ CellChangeTimes->{{3.659183043172783*^9, 3.659183062713541*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Create a BarChart from a Tally of the months at Oxford", "ItemNumbered",
+ CellChangeTimes->{{3.661675324575223*^9, 3.66167537018626*^9}}],
+
+Cell["\<\
+Ensure that a casual reader understands the axes of the chart using \
+appropriate Options for the Chart.\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.661675324575223*^9, 3.661675380013385*^9}}],
+
+Cell["\<\
+Consider whether this is the most appropriate visualisation for this \
+continuous dataset - is there a more appropriate Chart available?\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.661675324575223*^9, 3.661675447684102*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 892},
+WindowMargins->{{236, Automatic}, {23, Automatic}},
+FrontEndVersion->"10.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 10, \
+2015)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    CellGroupData[{
+      Cell[
+       StyleData["PresenterNote"], CellMargins -> {{66, 10}, {7, 7}}, 
+       LineSpacing -> {1, 3}, CounterIncrements -> "PresenterNote", 
+       MenuSortingValue -> 1400, FontFamily -> "Arial", FontSize -> 14, 
+       FontColor -> RGBColor[255, 0, 30]], 
+      Cell[
+       StyleData["PresenterNote", "Presentation"], 
+       CellMargins -> {{100, 10}, {10, 10}}, LineSpacing -> {1, 5}, FontSize -> 
+       24], 
+      Cell[
+       StyleData["PresenterNote", "SlideShow"], 
+       CellMargins -> {{
+         0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+          FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10, 10}}, 
+       FontSize -> 22]}, Open]]}, Visible -> False, FrontEndVersion -> 
+  "10.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 10, 2015)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 357, 5, 92, "Title"],
+Cell[CellGroupData[{
+Cell[962, 31, 157, 2, 64, "Section"],
+Cell[1122, 35, 244, 4, 49, "Text"],
+Cell[1369, 41, 842, 21, 63, "Input"],
+Cell[2214, 64, 128, 1, 30, "Text"],
+Cell[2345, 67, 10163, 262, 235, "Output"],
+Cell[CellGroupData[{
+Cell[12533, 333, 272, 9, 30, "ItemNumbered"],
+Cell[12808, 344, 345, 6, 30, "ItemNumbered"],
+Cell[CellGroupData[{
+Cell[13178, 354, 280, 3, 24, "SubitemNumbered"],
+Cell[13461, 359, 367, 6, 24, "SubitemNumbered"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13889, 372, 109, 1, 64, "Section"],
+Cell[CellGroupData[{
+Cell[14023, 377, 143, 1, 30, "ItemNumbered"],
+Cell[14169, 380, 202, 4, 49, "ItemNumbered"],
+Cell[14374, 386, 234, 4, 49, "ItemNumbered"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,0 +1,648 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     22025,        639]
+NotebookOptionsPosition[     19281,        546]
+NotebookOutlinePosition[     19640,        562]
+CellTagsIndexPosition[     19597,        559]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Processing Data and Importing From Excel", "Title",
+ CellChangeTimes->{{3.6627175986264544`*^9, 3.6627176055645933`*^9}, {
+   3.6627251714843683`*^9, 3.6627251730215187`*^9}, {3.6627252076420527`*^9, 
+   3.6627252150189734`*^9}, {3.662725324977351*^9, 3.662725332131886*^9}, {
+   3.6627294177264967`*^9, 3.662729419917474*^9}, {3.6635746436951323`*^9, 
+   3.6635746437275887`*^9}, 3.663577942428482*^9, {3.6640876903214283`*^9, 
+   3.664087690802157*^9}}],
+
+Cell["\<\
+For example purposes, we\[CloseCurlyQuote]ll export data from a Google Sheet \
+as an .xls file. The Google Sheet contains survey results concerning how many \
+desktop items University employees had on their work machines, it can be \
+downloaded directly from here: https://goo.gl/cGr5kN\
+\>", "Text",
+ CellChangeTimes->{{3.6627168597658463`*^9, 3.662716971556547*^9}}],
+
+Cell["\<\
+The expanded URL clearly has a .xlsx extension, this can be imported directly \
+using the Wolfram Language as follows:\
+\>", "Text",
+ CellChangeTimes->{{3.662716977888221*^9, 3.662716989314011*^9}, {
+  3.662717361891135*^9, 3.662717374928392*^9}, {3.662722010911344*^9, 
+  3.662722021932438*^9}}],
+
+Cell[BoxData[
+ RowBox[{"desktopItems$Import", "=", 
+  RowBox[{"Import", "[", 
+   RowBox[{
+   "\"\<https://docs.google.com/spreadsheets/d/1dYg-w-\
+k0upVEKhBzXCbikDN33o3pMtjPhy7Zb9E7kDg/pub?gid=651658206&single=true&output=\
+xlsx\>\"", ",", "\"\<XLSX\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.662717048741501*^9, 3.662717071301218*^9}, {
+  3.662717341887258*^9, 3.6627173558660507`*^9}, {3.662717438040263*^9, 
+  3.662717443522843*^9}, {3.6627220265065823`*^9, 3.662722042610621*^9}}],
+
+Cell["\<\
+Additional information can be supplied in the second argument of the function \
+to restrict the import to specific sheets, and columns. This was performed \
+previously for the ONS data:\
+\>", "Text",
+ CellChangeTimes->{{3.66272234431494*^9, 3.6627224018261547`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Import", "[", 
+  RowBox[{
+  "\"\<http://www.ons.gov.uk/ons/rel/vsob1/baby-names--england-and-wales/1904-\
+1994/top-100-baby-names-historical-data.xls\>\"", ",", "\[IndentingNewLine]", 
+   
+   RowBox[{"{", 
+    RowBox[{"\"\<XLS\>\"", ",", 
+     RowBox[{"(*", 
+      RowBox[{"file", " ", "format"}], "*)"}], "\[IndentingNewLine]", 
+     "\"\<Data\>\"", ",", 
+     RowBox[{"(*", 
+      RowBox[{
+      "representation", " ", "of", " ", "data", " ", "to", " ", "import"}], 
+      "*)"}], "\[IndentingNewLine]", "\"\<Boys\>\"", ",", 
+     RowBox[{"(*", 
+      RowBox[{"sheet", " ", "name", " ", "or", " ", "index"}], "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"Range", "[", 
+      RowBox[{"6", ",", "105"}], "]"}], ",", 
+     RowBox[{"(*", "rows", "*)"}], "\[IndentingNewLine]", "8"}], 
+    RowBox[{"(*", "column", "*)"}], "\[IndentingNewLine]", "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6627224575597343`*^9, 3.662722458505851*^9}, {
+  3.662722525085849*^9, 3.662722529696157*^9}, {3.662722600509651*^9, 
+  3.662722644843217*^9}}],
+
+Cell["\<\
+The Google Sheet name isn\[CloseCurlyQuote]t meaningful in this case so let \
+us import the first sheet by it\[CloseCurlyQuote]s index:\
+\>", "Text",
+ CellChangeTimes->{{3.662722316959866*^9, 3.662722319672587*^9}, {
+  3.662722921270032*^9, 3.662722937252674*^9}, {3.662722983423271*^9, 
+  3.662723001040351*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"desktopItems$Import", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<https://docs.google.com/spreadsheets/d/1dYg-w-\
+k0upVEKhBzXCbikDN33o3pMtjPhy7Zb9E7kDg/pub?gid=651658206&single=true&output=\
+xlsx\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<XLSX\>\"", ",", "\"\<Data\>\"", ",", "1"}], "}"}]}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.662723026489583*^9, 3.6627230375151453`*^9}, 
+   3.662723562884252*^9}],
+
+Cell["\<\
+The following pattern is useful for extracting the column headings and data \
+from the import:\
+\>", "Text",
+ CellChangeTimes->{{3.662723053163669*^9, 3.662723060340107*^9}, 
+   3.662723118017549*^9, {3.6627234911307993`*^9, 3.662723545850256*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"desktopItems$Headers", "=", 
+   RowBox[{"First", "[", "desktopItems$Import", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"desktopItems$Data", "=", 
+   RowBox[{"Rest", "[", "desktopItems$Import", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.662723548115226*^9, 3.662723578116168*^9}}],
+
+Cell["\<\
+As before, the data can be displayed as a Grid easily to inspect the data for \
+consistency.\
+\>", "Text",
+ CellChangeTimes->{{3.662723582030444*^9, 3.662723590636346*^9}, {
+  3.662723652333479*^9, 3.6627236569002733`*^9}, {3.6627237361136217`*^9, 
+  3.662723745404994*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{
+   RowBox[{"Prepend", "[", 
+    RowBox[{
+     RowBox[{"desktopItems$Data", "[", 
+      RowBox[{"[", 
+       RowBox[{"10", ";;", "15"}], "]"}], "]"}], ",", 
+     "desktopItems$Headers"}], "]"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.662723609552423*^9, 3.662723629709384*^9}, {
+  3.662723664159422*^9, 3.662723721330789*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Replacement Rules", "Section",
+ CellChangeTimes->{{3.662723907383566*^9, 3.662723910320428*^9}}],
+
+Cell["\<\
+Replacement rules are useful where elements must be modified should they meet \
+a pattern and/or condition, they are typically implemented using the \
+following syntax:\
+\>", "Text",
+ CellChangeTimes->{{3.662724614128552*^9, 3.662724662503187*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"1.", ",", "13.", ",", "7"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1.", ",", "13.", ",", "\"\<7 shortcuts\>\""}], "}"}]}], "}"}], "/.", 
+  RowBox[{"element_String", "\[RuleDelayed]", 
+   RowBox[{"StringSplit", "[", 
+    RowBox[{"element", ",", "\"\< \>\""}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.6627246924153*^9, 3.662724808305791*^9}, {
+  3.662724970139586*^9, 3.662724988858368*^9}, {3.662727883806024*^9, 
+  3.662727895348024*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1.`", ",", "13.`", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.`", ",", "13.`", ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"7\"\>", ",", "\<\"shortcuts\"\>"}], "}"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.662724809017809*^9, 3.66272499241954*^9, 
+  3.66272789588235*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "The /. is an ",
+ StyleBox["infix ",
+  FontSlant->"Italic"],
+ "operator for the function ReplaceAll, and the symbol \[RuleDelayed] is \
+simply :>"
+}], "Text",
+ CellChangeTimes->{{3.6627248163591547`*^9, 3.662724866770546*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ReplaceAll", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1.", ",", "13.", ",", "7"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1.", ",", "13.", ",", "\"\<7 shortcuts\>\""}], "}"}]}], "}"}], 
+   ",", 
+   RowBox[{"element_String", "\[RuleDelayed]", 
+    RowBox[{"StringSplit", "[", 
+     RowBox[{"element", ",", "\"\< \>\""}], "]"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.66272486951406*^9, 3.662724881084083*^9}, {
+   3.662724990085554*^9, 3.662724991063781*^9}, 3.6627279025973577`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1.`", ",", "13.`", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.`", ",", "13.`", ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"7\"\>", ",", "\<\"shortcuts\"\>"}], "}"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.66272488158342*^9, 3.662724993171636*^9, 
+  3.66272790305103*^9}]
+}, Open  ]],
+
+Cell["\<\
+More processing of the string is required to obtain the 7 and to convert it \
+into a Real:\
+\>", "Text",
+ CellChangeTimes->{{3.6627249287065153`*^9, 3.662724965873885*^9}, {
+  3.662725028874013*^9, 3.662725033182837*^9}}],
+
+Cell["\<\
+The following will extract the first element of the List resultant from \
+StringSplit\
+\>", "Item",
+ CellChangeTimes->{{3.662725036019412*^9, 3.662725059542418*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"StringSplit", "[", 
+   RowBox[{"\"\<7 shortcuts\>\"", ",", "\"\< \>\""}], "]"}], "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.662725008120306*^9, 3.662725022440504*^9}}],
+
+Cell[BoxData["\<\"7\"\>"], "Output",
+ CellChangeTimes->{3.662725022915501*^9}]
+}, Open  ]],
+
+Cell["ToExpression will convert the String into an Integer:", "Item",
+ CellChangeTimes->{{3.6627250638634157`*^9, 3.662725089275941*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ToExpression", "[", "\"\<7\>\"", "]"}], "+", "2"}]], "Input",
+ CellChangeTimes->{{3.662725095792325*^9, 3.662725111755258*^9}}],
+
+Cell[BoxData["9"], "Output",
+ CellChangeTimes->{3.662725112585999*^9}]
+}, Open  ]],
+
+Cell["\<\
+These steps can then be combined to replace the string with the number 7:\
+\>", "Text",
+ CellChangeTimes->{{3.6627251181774397`*^9, 3.662725138754652*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"1.", ",", "13.", ",", "7"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1.", ",", "13.", ",", "\"\<7 shortcuts\>\""}], "}"}]}], "}"}], "/.", 
+  RowBox[{"element_String", "\[RuleDelayed]", 
+   RowBox[{"ToExpression", "[", 
+    RowBox[{
+     RowBox[{"StringSplit", "[", 
+      RowBox[{"element", ",", "\"\< \>\""}], "]"}], "[", 
+     RowBox[{"[", "1", "]"}], "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.662725149551869*^9, 3.662725162279739*^9}, 
+   3.662727908986261*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1.`", ",", "13.`", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.`", ",", "13.`", ",", "7"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.662725163554723*^9, 3.66272790949086*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Exercises", "Title",
+ CellChangeTimes->{{3.6640877294247704`*^9, 3.6640877360156097`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Tidying the Desktop Items", "Section",
+ CellChangeTimes->{{3.662725216795562*^9, 3.6627252308928013`*^9}}],
+
+Cell["\<\
+Use your knowledge of Parts to ensure that the row containing the string \
+\[OpenCurlyDoubleQuote]7 shortcuts\[CloseCurlyDoubleQuote] is replaced with \
+the number string.\
+\>", "Text",
+ CellChangeTimes->{{3.66272523717142*^9, 3.6627252978423653`*^9}}],
+
+Cell[TextData[{
+ "You do not ",
+ StyleBox["need",
+  FontSlant->"Italic"],
+ " to use the /. function if you choose to use another method, and you may \
+wish to consider alternatives. One alternative may be made obvious to you \
+through the following example. \n\nHowever, you shoud ",
+ StyleBox["not",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ StyleBox[" ",
+  FontSlant->"Italic"],
+ "hardcode for a specific string as this is not a flexible solution."
+}], "Text",
+ CellChangeTimes->{{3.6627253004856977`*^9, 3.662725448131495*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"thisList", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "\"\<this is 4\>\"", ",", "7"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"thisList", "[", 
+    RowBox[{"[", "2", "]"}], "]"}], "=", "4"}], 
+  ";"}], "\[IndentingNewLine]", "thisList"}], "Input",
+ CellChangeTimes->{{3.662725375904716*^9, 3.662725394583255*^9}, {
+  3.6627254509794273`*^9, 3.662725453466164*^9}}],
+
+Cell["\<\
+To test whether you have succesfully completed this task the following should \
+evaluate as True:\
+\>", "Text",
+ CellChangeTimes->{{3.662725463062009*^9, 3.662725491692937*^9}}],
+
+Cell[BoxData[
+ RowBox[{"MemberQ", "[", 
+  RowBox[{
+   RowBox[{"desktopItems$Data", "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", "2"}], "]"}], "]"}], ",", 
+   RowBox[{
+    RowBox[{"q_", "?", "NumericQ"}], " ", "/;", 
+    RowBox[{"q", "\[LessEqual]", "1000"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6627258458606043`*^9, 3.662725897137281*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Importing Excel Files Locally", "Section",
+ CellChangeTimes->{{3.6627259199518423`*^9, 3.6627259255302563`*^9}}],
+
+Cell["\<\
+On the desktop is folder called \[OpenCurlyDoubleQuote]Wolfram Language \
+Example files\[CloseCurlyDoubleQuote] which contains two Excel files that \
+requires cleaning in a similar fashion to the previously studied Excel file. \
+However, the files must be imported from a local source. \
+\>", "Text",
+ CellChangeTimes->{{3.662726250277134*^9, 3.6627262738907757`*^9}, {
+  3.662726310297079*^9, 3.662726333381373*^9}, {3.6627265233205547`*^9, 
+  3.662726524904208*^9}, {3.662726845238912*^9, 3.662726853090993*^9}}],
+
+Cell[TextData[{
+ "This can be achieved by navigating in the menubar to Insert \[Rule] File \
+Path and then selecting the files individually and providing their filepaths \
+to Import. You are encouraged to use this solution if necessary.\n\nHowever, \
+it is much more useful to be able to specify a folder location to ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " as the WorkingDirectory through the use of the SetDirectory function:"
+}], "Text",
+ CellChangeTimes->{{3.662726341042*^9, 3.662726373836157*^9}, {
+  3.662726472850111*^9, 3.662726568957943*^9}, {3.66272686137167*^9, 
+  3.662726888303073*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SetDirectory", "[", "$HomeDirectory", "]"}]], "Input",
+ CellChangeTimes->{{3.662726569884096*^9, 3.662726574304339*^9}}],
+
+Cell[BoxData["\<\"/Users/martinjohnhadley\"\>"], "Output",
+ CellChangeTimes->{3.662726574812059*^9, 3.662726630738793*^9}]
+}, Open  ]],
+
+Cell["\<\
+Files in the working directory can now be listed easily, and can be imported \
+by specifying their filenames alone:\
+\>", "Text",
+ CellChangeTimes->{{3.6627266482839108`*^9, 3.662726674102359*^9}, {
+  3.662726929477668*^9, 3.662726942574987*^9}, {3.662726993280096*^9, 
+  3.662727033284444*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"Short", "[", 
+    RowBox[{"FileNames", "[", "]"}], "]"}], ",", 
+   RowBox[{"Import", "[", "\"\<homedirectory.txt\>\"", "]"}]}], 
+  "}"}]], "Input",
+ CellChangeTimes->{{3.6627265767420483`*^9, 3.662726585143162*^9}, {
+  3.662726625243622*^9, 3.662726627382388*^9}, {3.662726979916389*^9, 
+  3.6627269892846727`*^9}, {3.662727027033691*^9, 3.662727044187286*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[
+    RowBox[{"{", 
+     RowBox[{"\<\".android\"\>", ",", "\<\"Applications\"\>", 
+      ",", "\<\".atom\"\>", ",", "\<\".bash_history\"\>", ",", 
+      RowBox[{"\[LeftSkeleton]", "54", "\[RightSkeleton]"}], 
+      ",", "\<\".thumbnails\"\>", ",", "\<\"tmp.txt\"\>", 
+      ",", "\<\".Trash\"\>", ",", "\<\"VirtualBox VMs\"\>"}], "}"}],
+    Short], ",", "\<\"I was in the $HomeDirectory\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.662726627725165*^9, 3.662726632259509*^9}, {
+   3.662726974006578*^9, 3.662726989693241*^9}, 3.6627270445743103`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Import the two Excel files into ",
+ StyleBox["Mathematica ",
+  FontSlant->"Italic"],
+ "and store the ",
+ StyleBox["data ",
+  FontSlant->"Italic"],
+ "from the workbooks against two appropriately named symbols."
+}], "ItemNumbered",
+ CellChangeTimes->{{3.662727059408133*^9, 3.662727105079534*^9}}],
+
+Cell["\<\
+In each file there are incorrectly or suspicious, replace each of these in \
+turn:\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.662727059408133*^9, 3.6627271423320007`*^9}, {
+  3.662727361179764*^9, 3.662727397022814*^9}, {3.662727486675807*^9, 
+  3.662727486681838*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+There are two dates incorrect typed as \[OpenCurlyDoubleQuote]45 y\
+\[CloseCurlyDoubleQuote] - replace these using the method used above.\
+\>", "SubitemNumbered",
+ CellChangeTimes->{{3.662727059408133*^9, 3.6627271423320007`*^9}, {
+  3.662727361179764*^9, 3.662727397022814*^9}, {3.662727486675807*^9, 
+  3.662727513405632*^9}}],
+
+Cell["\<\
+Gavin has an age of 333 - this is suspiciously high and impossible to decide \
+how to fix. Remove or drop this element.\
+\>", "SubitemNumbered",
+ CellChangeTimes->{{3.662727059408133*^9, 3.6627271423320007`*^9}, {
+  3.662727361179764*^9, 3.662727461182562*^9}, {3.662727523046006*^9, 
+  3.66272752305729*^9}}],
+
+Cell["\<\
+Louis has an age of -19 which is impossible but convincingly interpretable as \
+19. Find a method to replace any negative number (those below 0) to be \
+replaced with their absolute value.\
+\>", "SubitemNumbered",
+ CellChangeTimes->{{3.662727059408133*^9, 3.6627271423320007`*^9}, {
+  3.662727361179764*^9, 3.662727461182562*^9}, {3.662727523046006*^9, 
+  3.662727601302724*^9}}],
+
+Cell["\<\
+Michael\[CloseCurlyQuote]s age has been entered as 34y which cannot be split \
+using a \[OpenCurlyDoubleQuote] \[OpenCurlyDoubleQuote] character. \
+\[LineSeparator]Decide on an appropriate way to treat this entry, note that \
+the most flexible method would look for digit characters.\
+\>", "SubitemNumbered",
+ CellChangeTimes->{{3.662727059408133*^9, 3.6627271423320007`*^9}, {
+  3.662727361179764*^9, 3.662727461182562*^9}, {3.662727523046006*^9, 
+  3.662727720226839*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Join the two tables of data together into a Grid.\[LineSeparator]\
+\[LineSeparator]The output should look as follows:\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.662727059408133*^9, 3.6627271423320007`*^9}, {
+  3.662727361179764*^9, 3.662727461182562*^9}, {3.662727523046006*^9, 
+  3.6627277588382883`*^9}, {3.662728313852029*^9, 3.662728319467141*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Name\"\>", "\<\"Age\"\>", "\<\"City of Birth\"\>"},
+    {"\<\"Jane\"\>", "23.`", "\<\"Northampton\"\>"},
+    {"\<\"Sally\"\>", "21.`", "\<\"Bellyinborough\"\>"},
+    {"\<\"Rita\"\>", "25.`", "\<\"Budapest\"\>"},
+    {"\<\"Louis\"\>", "10.`", "\<\"Birmingham\"\>"},
+    {"\<\"James\"\>", "45", "\<\"Edinborough\"\>"},
+    {"\<\"Michael\"\>", "34", "\<\"Cardiff\"\>"},
+    {"\<\"Paul\"\>", "21.`", "\<\"Leicester\"\>"},
+    {"\<\"Richard\"\>", "45", "\<\"Johannesburg\:200e\"\>"},
+    {"\<\"Andrew\"\>", "31.`", "\<\"Liverpool\"\>"},
+    {"\<\"Zoe\"\>", "40.`", "\<\"Portsmouth\"\>"},
+    {"\<\"Marlena\"\>", "31.`", "\<\"Cardiff\"\>"}
+   },
+   AutoDelete->False,
+   BaseStyle->"Text",
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.662727825474004*^9, 3.662727837046214*^9}, 
+   3.6627279280218697`*^9, {3.6627279774440193`*^9, 3.6627279975673943`*^9}, 
+   3.662728165935511*^9, {3.6627281964749928`*^9, 3.662728217661416*^9}, {
+   3.662728261172559*^9, 3.6627282735306873`*^9}, {3.662728330695856*^9, 
+   3.662728357635387*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 892},
+WindowMargins->{{443, Automatic}, {Automatic, 26}},
+FrontEndVersion->"10.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 10, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 461, 6, 148, "Title"],
+Cell[1044, 30, 378, 6, 68, "Text"],
+Cell[1425, 38, 306, 6, 49, "Text"],
+Cell[1734, 46, 489, 9, 80, "Input"],
+Cell[2226, 57, 276, 5, 49, "Text"],
+Cell[2505, 64, 1066, 25, 165, "Input"],
+Cell[3574, 91, 323, 6, 30, "Text"],
+Cell[3900, 99, 469, 12, 80, "Input"],
+Cell[4372, 113, 258, 5, 30, "Text"],
+Cell[4633, 120, 342, 8, 46, "Input"],
+Cell[4978, 130, 284, 6, 30, "Text"],
+Cell[5265, 138, 421, 11, 28, "Input"],
+Cell[CellGroupData[{
+Cell[5711, 153, 102, 1, 64, "Section"],
+Cell[5816, 156, 258, 5, 49, "Text"],
+Cell[CellGroupData[{
+Cell[6099, 165, 532, 13, 28, "Input"],
+Cell[6634, 180, 368, 11, 28, "Output"]
+}, Open  ]],
+Cell[7017, 194, 243, 7, 30, "Text"],
+Cell[CellGroupData[{
+Cell[7285, 205, 558, 14, 46, "Input"],
+Cell[7846, 221, 368, 11, 28, "Output"]
+}, Open  ]],
+Cell[8229, 235, 231, 5, 30, "Text"],
+Cell[8463, 242, 175, 4, 28, "Item"],
+Cell[CellGroupData[{
+Cell[8663, 250, 231, 5, 28, "Input"],
+Cell[8897, 257, 78, 1, 28, "Output"]
+}, Open  ]],
+Cell[8990, 261, 137, 1, 28, "Item"],
+Cell[CellGroupData[{
+Cell[9152, 266, 162, 3, 28, "Input"],
+Cell[9317, 271, 70, 1, 28, "Output"]
+}, Open  ]],
+Cell[9402, 275, 165, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[9592, 282, 562, 15, 46, "Input"],
+Cell[10157, 299, 264, 7, 28, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10482, 313, 96, 1, 92, "Title"],
+Cell[CellGroupData[{
+Cell[10603, 318, 112, 1, 64, "Section"],
+Cell[10718, 321, 262, 5, 49, "Text"],
+Cell[10983, 328, 535, 14, 87, "Text"],
+Cell[11521, 344, 438, 12, 63, "Input"],
+Cell[11962, 358, 187, 4, 30, "Text"],
+Cell[12152, 364, 351, 9, 28, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12540, 378, 118, 1, 64, "Section"],
+Cell[12661, 381, 524, 8, 68, "Text"],
+Cell[13188, 391, 614, 11, 106, "Text"],
+Cell[CellGroupData[{
+Cell[13827, 406, 144, 2, 28, "Input"],
+Cell[13974, 410, 122, 1, 28, "Output"]
+}, Open  ]],
+Cell[14111, 414, 305, 6, 30, "Text"],
+Cell[CellGroupData[{
+Cell[14441, 424, 413, 9, 28, "Input"],
+Cell[14857, 435, 601, 12, 46, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15495, 452, 313, 9, 49, "ItemNumbered"],
+Cell[15811, 463, 280, 6, 30, "ItemNumbered"],
+Cell[CellGroupData[{
+Cell[16116, 473, 338, 6, 24, "SubitemNumbered"],
+Cell[16457, 481, 319, 6, 41, "SubitemNumbered"],
+Cell[16779, 489, 389, 7, 41, "SubitemNumbered"],
+Cell[17171, 498, 484, 8, 58, "SubitemNumbered"]
+}, Open  ]],
+Cell[17670, 509, 363, 6, 68, "ItemNumbered"]
+}, Open  ]],
+Cell[18048, 518, 1205, 24, 269, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
