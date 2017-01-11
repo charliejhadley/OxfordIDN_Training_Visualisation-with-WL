@@ -1,4 +1,4 @@
-# Visualusation: Wolfram Language and Mathematica for researchers
+# Visualisation: Wolfram Language and Mathematica for researchers
 
 This course introduces the Wolfram Language and the Mathematica environment from the point of view of an user interested (or experienced) in visualising research data and creating interactive content.
 
